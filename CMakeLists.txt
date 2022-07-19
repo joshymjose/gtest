@@ -22,14 +22,20 @@ endif()
 
 enable_testing()
 
+include(GoogleTest)
+
 add_executable(
   addition_test
   basic_test.cpp
+  addition.cpp
+  addition_tests.cpp
 )
 target_link_libraries(
   addition_test
-  gtest_main
+  GTest::gtest_main
 )
 
-include(GoogleTest)
+add_subdirectory(TEST_F)
+
+
 gtest_discover_tests(addition_test)
